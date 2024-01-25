@@ -1,0 +1,78 @@
+<div class="container">
+  <ion-card>
+    <div class="balance">
+      <h1>Saldo</h1>
+      <span [class]="balance >= 0 ? 'surplus' : 'deficit'">
+        {{ balance + "$" }}</span
+      >
+    </div>
+  </ion-card>
+  <ion-card class="mt-4">
+    <ion-card-header
+      ><ion-card-title> Ingresos </ion-card-title></ion-card-header
+    >
+
+    <ion-card-content>
+      <ion-text *ngIf="lastsIncome.length == 0">No hay ningún ingreso</ion-text>
+      <table *ngIf="lastsIncome.length > 0">
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Fecha</th>
+            <th>Monto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let income of lastsIncome">
+            <td class="title-table">{{ income.title }}</td>
+            <td>{{ income.date }}</td>
+            <td class="surplus">{{ "+ " + income.amount + "$" }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="mt-4">
+    <ion-card-header><ion-card-title> Gastos </ion-card-title></ion-card-header>
+
+    <ion-card-content>
+      <ion-text *ngIf="lastsBills.length == 0">No hay ningún gasto</ion-text>
+      <table *ngIf="lastsBills.length > 0">
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Fecha</th>
+            <th>Monto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let bill of lastsBills">
+            <td class="title-table">{{ bill.title }}</td>
+            <td>{{ bill.date }}</td>
+            <td class="deficit">{{ "- " + bill.amount + "$" }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="mt-4">
+    <ion-card-header>
+      <ion-card-title>
+        Gráfica de ingresos y gastos
+        <ion-button color="medium" (click)="updatePie()"
+          ><ion-icon name="reload-outline"></ion-icon></ion-button
+      ></ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-text *ngIf="income.length == 0 && bills.length == 0"
+        >Aún no hay datos para poder visualizar el gráfico</ion-text
+      >
+      <div>
+        <canvas id="pie"></canvas>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</div>

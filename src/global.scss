@@ -1,0 +1,147 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+* {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.container {
+  margin-top: 4rem;
+  padding: 0.5rem;
+  overflow-y: scroll;
+}
+
+.balance,
+.balance-total {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  font-size: xx-large;
+}
+
+.surplus {
+  color: rgb(37, 182, 85);
+}
+
+.deficit {
+  color: red;
+}
+
+table {
+  width: 100%;
+  font-size: large;
+  background-color: #0000000c;
+  padding: 0.5rem;
+}
+
+th {
+  text-align: start;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #ff33cc00;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #0000000a;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.048);
+  border-radius: 10px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.data {
+  width: 100%;
+}
+.number,
+.delete {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.5rem;
+  max-width: 2.5rem;
+  font-weight: 900;
+  font-size: x-large;
+}
+
+.first-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-weight: 800;
+  font-size: medium;
+  margin-right: 0.2rem;
+}
+
+.trash {
+  color: rgb(206, 94, 94);
+}
+
+.btn-add {
+  font-size: xx-large;
+}
+
+.cancel {
+  color: var(--ion-color-medium) !important;
+}
+
+.delete {
+  color: var(--ion-color-danger) !important;
+}
+
+.title-table {
+  width: 40%;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    background-color: rgba(0, 0, 0, 0.356);
+  }
+
+  table {
+    background-color: rgba(0, 0, 0, 0.178);
+  }
+
+  tbody tr:nth-child(odd) {
+    background-color: #00000036;
+  }
+}

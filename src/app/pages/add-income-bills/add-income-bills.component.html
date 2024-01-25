@@ -1,0 +1,48 @@
+<div class="container">
+  <ion-card class="mt-4">
+    <ion-card-header>
+      <ion-card-title>
+        Crear un nuevo {{ type == "bills" ? "gasto" : "ingreso" }}
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form [formGroup]="form">
+        <ion-input
+          color="primary"
+          formControlName="title"
+          label="Título:"
+        ></ion-input>
+        <div class="separator"></div>
+        <ion-input
+          color="primary"
+          formControlName="description"
+          label="Descripción:"
+        ></ion-input>
+        <div class="separator"></div>
+        <ion-input
+          color="primary"
+          formControlName="date"
+          label="Fecha:"
+          type="date"
+        ></ion-input>
+        <div class="separator"></div>
+        <ion-input
+          color="primary"
+          formControlName="amount"
+          label="Monto:"
+          type="number"
+        ></ion-input>
+        <div class="separator"></div>
+        <div class="error">
+          <ion-text color="danger">{{ errorMessage }}</ion-text>
+        </div>
+
+        <div class="btn-container">
+          <ion-button color="medium" (click)="cancel()">Cancelar</ion-button>
+          <ion-button (click)="save()">Guardar</ion-button>
+        </div>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</div>

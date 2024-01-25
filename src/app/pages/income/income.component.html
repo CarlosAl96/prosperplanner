@@ -1,0 +1,55 @@
+<div class="container">
+  <ion-card>
+    <div class="balance">
+      <h1>Total</h1>
+      <span class="surplus"> {{ "+" + total + "$" }} </span>
+    </div>
+  </ion-card>
+
+  <ion-card class="mt-4">
+    <ion-card-header
+      ><ion-card-title> Lista de ingresos </ion-card-title></ion-card-header
+    >
+
+    <ion-card-content>
+
+      <ion-text *ngIf="income.length == 0">No hay ningún ingreso</ion-text>
+
+      <div class="card" *ngFor="let inc of income; let i = index">
+        <div class="number">
+          <span>{{ i + 1 }}</span>
+        </div>
+        <div class="data">
+          <div class="first-section">
+            <div>
+              <span class="subtitle">
+                {{ inc.title }}
+              </span>
+              <span>{{ inc.date }}</span>
+            </div>
+
+            <div>
+              <span class="subtitle surplus">{{ "+" + inc.amount + "$" }}</span>
+            </div>
+          </div>
+          <div>
+            <span>{{ inc.description }}</span>
+          </div>
+        </div>
+        <div class="delete">
+          <ion-icon
+            (click)="presentAlert(i)"
+            name="trash"
+            class="trash"
+          ></ion-icon>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="goToAdd()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</div>
